@@ -1,5 +1,9 @@
-console.log('Hello World');
+var http = require('http');
 
-for(i=0;i<10;i++){
-  console.log('This is achieved using Ansible');
+function onRequest(request, response){
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.write('Hello World');
+    response.end();
 }
+
+http.createServer(onRequest).listen(5000);
